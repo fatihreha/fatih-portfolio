@@ -86,7 +86,7 @@ function App() {
                 <h3 className="text-xl font-semibold mb-3 dark:text-white">42 Istanbul</h3>
                 <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                   <li>Jan 2024 - Feb 2024</li>
-                  <li>Developed skills by completing 10+ algorithmic challenges using C programming and Norminette rules in a peerlearning environment.</li>
+                  <li>Developed skills by completing algorithmic challenges using C programming and Norminette rules in a peerlearning environment.</li>
                 </ul>
               </div>
             </div>

@@ -24,6 +24,8 @@ import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -107,6 +109,8 @@ function App() {
       </main>
       
       <Footer socialLinks={socialLinks} />
+      <SpeedInsights />
+      <Analytics />
     </div>
   );
 };

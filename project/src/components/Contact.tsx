@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import OpenStreetMap from './OpenStreetMap';
 
 interface ContactProps {
   id: string;
@@ -100,13 +101,15 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                 </div>
                 <div className="w-full">
                   <h4 className="font-semibold mb-1 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2">Uskudar,Istanbul, TR</p>
-                  <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 w-full max-w-xs">
-                    <img 
-                      src="https://maps.googleapis.com/maps/api/staticmap?center=Üsküdar,Istanbul&zoom=13&size=300x150&maptype=roadmap&markers=color:red%7CÜsküdar,Istanbul&key=YOUR_GOOGLE_MAPS_API_KEY" 
-                      alt="Map showing Üsküdar, Istanbul" 
-                      className="w-full h-auto"
-                    />
+                  <div className="w-full max-w-xs h-[190px]">
+                    <div className="h-[150px] w-full relative">
+                      <OpenStreetMap 
+                        center={[41.0233, 29.0244]} 
+                        zoom={13} 
+                        width="100%" 
+                        height="100%" 
+                      />
+                    </div>
                     <div className="p-2 bg-gray-50 dark:bg-gray-800 text-xs text-center text-gray-500 dark:text-gray-400">
                       Üsküdar/Istanbul, Turkey
                     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, MapPin, Calendar, Briefcase } from 'lucide-react';
+import OpenStreetMap from './OpenStreetMap';
 
 interface AboutProps {
   id: string;
@@ -48,9 +49,19 @@ const About: React.FC<AboutProps> = ({ id }) => {
                 <div className="bg-indigo-100 p-2 rounded-md text-indigo-600">
                   <MapPin size={20} />
                 </div>
-                <div>
+                <div className="w-full">
                   <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
-                  <p className="font-medium dark:text-white">Uskudar, Istanbul, TR</p>
+                  <div className="w-full max-w-xs mt-2">
+                    <OpenStreetMap 
+                      center={[41.0233, 29.0244]} 
+                      zoom={13} 
+                      width="100%" 
+                      height="150px" 
+                    />
+                    <div className="p-2 bg-gray-50 dark:bg-gray-800 text-xs text-center text-gray-500 dark:text-gray-400">
+                      Üsküdar/Istanbul, Turkey
+                    </div>
+                  </div>
                 </div>
               </div>
               

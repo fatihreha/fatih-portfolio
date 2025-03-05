@@ -57,8 +57,6 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
           </p>
           
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Terms of Service</a>
             <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Sitemap</a>
           </div>
         </div>

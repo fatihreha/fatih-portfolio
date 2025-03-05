@@ -19,12 +19,12 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
   };
   
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <a href="#" className="text-2xl font-bold text-white">Fatih</a>
-            <p className="mt-2 text-gray-400">Personal Portfolio Design</p>
+            <p className="mt-2 text-gray-400 dark:text-gray-300">Personal Portfolio Design</p>
           </div>
           
           <div className="flex space-x-4 mb-6 md:mb-0">
@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 hover:bg-indigo-600 p-3 rounded-full transition-colors"
+                className="bg-gray-800 dark:bg-gray-700 hover:bg-indigo-600 dark:hover:bg-indigo-700 p-3 rounded-full transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}
@@ -51,15 +51,15 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
           </button>
         </div>
         
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
+        <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 dark:text-gray-300 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Fatih Reha Dişçi
           </p>
           
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</a>
+            <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Privacy Policy</a>
+            <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Terms of Service</a>
+            <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Sitemap</a>
           </div>
         </div>
       </div>

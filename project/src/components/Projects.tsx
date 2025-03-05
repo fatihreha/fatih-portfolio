@@ -72,7 +72,7 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
   return (
     <section id={id} className="py-16 bg-gray-50 dark:bg-dark-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">My Projects</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">My Projects</h2>
         
         <div className="flex justify-center mb-10">
           <div className="inline-flex flex-wrap justify-center gap-2">
@@ -103,14 +103,14 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium"
+                      className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-1 rounded-full text-sm font-medium"
                     >
                       {tag}
                     </span>

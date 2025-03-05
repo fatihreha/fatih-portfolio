@@ -62,13 +62,13 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
   ];
   
   return (
-    <section id={id} className="py-16 bg-white">
+    <section id={id} className="py-16 bg-white dark:bg-dark-primary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">Certifications</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">Certifications</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {certifications.map((cert) => (
-            <div key={cert.id} className="bg-gray-50 rounded-lg overflow-hidden shadow-md flex flex-col hover-scale animate-fade-in-up">
+            <div key={cert.id} className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md flex flex-col hover-scale animate-fade-in-up">
               <div className="h-40 overflow-hidden">
                 <img 
                   src={cert.image} 
@@ -80,11 +80,11 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center">
                     <Award size={20} className="text-indigo-600 mr-2" />
-                    <h3 className="text-lg font-bold">{cert.name}</h3>
+                    <h3 className="text-lg font-bold dark:text-white">{cert.name}</h3>
                   </div>
                 </div>
                 
-                <div className="flex items-center text-gray-600 mb-3">
+                <div className="flex items-center text-gray-600 dark:text-gray-300 mb-3">
                   <span className="font-medium">{cert.issuer}</span>
                   <span className="mx-2">•</span>
                   <div className="flex items-center">
@@ -93,14 +93,14 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
                   </div>
                 </div>
                 
-                <p className="text-gray-700 mb-4">{cert.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">{cert.description}</p>
                 
                 {cert.credentialUrl && (
                   <a 
                     href={cert.credentialUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-indigo-600 hover:text-indigo-800 text-sm font-medium mt-auto"
+                    className="inline-flex items-center text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium"
                   >
                     <ExternalLink size={16} className="mr-1" />
                     Verify Credential

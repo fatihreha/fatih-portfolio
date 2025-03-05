@@ -7,14 +7,14 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ id }) => {
   return (
-    <section id={id} className="py-16 bg-white">
+    <section id={id} className="py-16 bg-white dark:bg-dark-primary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">About Me</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">About Me</h2>
         
         <div className="flex flex-col md:flex-row gap-10 items-center max-w-5xl mx-auto">
           <div className="w-full md:w-1/3">
             <div className="relative">
-              <div className="aspect-square rounded-full overflow-hidden border-4 border-indigo-100">
+              <div className="aspect-square rounded-full overflow-hidden border-4 border-indigo-100 dark:border-gray-700">
                 <img 
                   src="/fthrhdsc.jpg" 
                   alt="Profile" 
@@ -28,8 +28,8 @@ const About: React.FC<AboutProps> = ({ id }) => {
           </div>
           
           <div className="w-full md:w-2/3">
-            <h3 className="text-2xl font-bold mb-4">Fatih Reha Dişçi</h3>
-            <p className="text-gray-600 mb-6">
+            <h3 className="text-2xl font-bold mb-4 dark:text-white">Fatih Reha Dişçi</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
             Senior IT student aiming to specialize in DevOps and Cloud technologies, continuously developing skills in these fields, with curiosity about exploring other IT domains to broaden technical expertise.
             </p>
             
@@ -39,8 +39,8 @@ const About: React.FC<AboutProps> = ({ id }) => {
                   <User size={20} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Gender</p>
-                  <p className="font-medium">Male</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Gender</p>
+                  <p className="font-medium dark:text-white">Male</p>
                 </div>
               </div>
               
@@ -49,8 +49,8 @@ const About: React.FC<AboutProps> = ({ id }) => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Location</p>
-                  <p className="font-medium">Uskudar, Istanbul, TR</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
+                  <p className="font-medium dark:text-white">Uskudar, Istanbul, TR</p>
                 </div>
               </div>
               
@@ -59,8 +59,8 @@ const About: React.FC<AboutProps> = ({ id }) => {
                   <Briefcase size={20} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Current Role</p>
-                  <p className="font-medium">Freelancer</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Current Role</p>
+                  <p className="font-medium dark:text-white">Freelancer</p>
                 </div>
               </div>
               
@@ -69,20 +69,20 @@ const About: React.FC<AboutProps> = ({ id }) => {
                   <Calendar size={20} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Experience</p>
-                  <p className="font-medium">0-1 Years</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Experience</p>
+                  <p className="font-medium dark:text-white">0-1 Years</p>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-wrap gap-2">
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Python</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Java</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">C/C++</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">SQL</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Linux</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Cloud</span>
-              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Shell Scripting</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Python</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Java</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">C/C++</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">SQL</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Linux</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Cloud</span>
+              <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm">Shell Scripting</span>
             </div>
           </div>
         </div>

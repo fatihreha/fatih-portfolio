@@ -35,9 +35,9 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
   ];
   
   return (
-    <section id={id} className="py-16 bg-white">
+    <section id={id} className="py-16 bg-white dark:bg-dark-primary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">Professional Experience</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">Professional Experience</h2>
         
         <div className="max-w-4xl mx-auto">
           <div className="relative border-l-2 border-indigo-200 pl-8 ml-4">
@@ -49,13 +49,13 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
                 <div className="absolute w-4 h-4 bg-indigo-600 rounded-full -left-[9px] mt-1.5"></div>
                 
                 <div className="flex items-center mb-2">
-                  <div className="bg-indigo-100 text-indigo-600 p-2 rounded mr-3">
+                  <div className="bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 p-2 rounded mr-3">
                     <Briefcase size={18} />
                   </div>
-                  <h3 className="text-xl font-bold">{job.title}</h3>
+                  <h3 className="text-xl font-bold dark:text-white">{job.title}</h3>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 dark:text-gray-400 mb-3">
                   <div className="flex items-center">
                     <span className="font-medium">{job.company}</span>
                     <span className="mx-2">•</span>
@@ -68,7 +68,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
                   </div>
                 </div>
                 
-                <ul className="list-disc pl-5 mb-4 space-y-1 text-gray-700">
+                <ul className="list-disc pl-5 mb-4 space-y-1 text-gray-700 dark:text-gray-300">
                   {job.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -76,7 +76,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
                 
                 <div className="flex flex-wrap gap-2">
                   {job.technologies.map((tech, i) => (
-                    <span key={i} className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">
+                    <span key={i} className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 px-2 py-1 rounded text-sm">
                       {tech}
                     </span>
                   ))}

@@ -13,7 +13,9 @@ import {
   Heart, 
   Target, 
   Activity,
-  FileDown
+  FileDown,
+  Sun,
+  Moon
 } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -26,6 +28,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
+import { useTheme } from './context/ThemeContext';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,7 +63,7 @@ function App() {
   const resumeUrl = 'https://drive.google.com/file/d/1wvRfgCAeF_TfJYlG3pre2FotqYLVO-WG/view?usp=sharing';
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-secondary text-gray-800 dark:text-gray-200">
       <Header 
         navItems={navItems} 
         socialLinks={socialLinks} 
@@ -75,13 +78,13 @@ function App() {
         <Education id="education" />
         <Projects id="projects" />
         <Certifications id="certifications" />
-        <section id="activities" className="py-16 bg-white">
+        <section id="activities" className="py-16 bg-white dark:bg-dark-primary">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">Activities</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">Activities</h2>
             <div className="max-w-3xl mx-auto">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-3">42 Istanbul</h3>
-                <ul className="list-disc pl-5 space-y-2">
+              <div className="bg-white dark:bg-dark-primary p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3 dark:text-white">42 Istanbul</h3>
+                <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                   <li>Jan 2024 - Feb 2024</li>
                   <li>Developed skills by completing 10+ algorithmic challenges using C programming and Norminette rules in a peerlearning environment.</li>
                 </ul>
@@ -89,17 +92,17 @@ function App() {
             </div>
           </div>
         </section>
-        <section id="aims" className="py-16 bg-gray-50">
+        <section id="aims" className="py-16 bg-gray-50 dark:bg-dark-secondary">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">My Aims</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">My Aims</h2>
             <div className="max-w-3xl mx-auto">
-              <p className="text-lg mb-6">
+              <p className="text-lg mb-6 dark:text-gray-300">
                 I am a senior IT student aiming to specialize in DevOps and Cloud technologies, with a strong passion for leveraging technology to create meaningful solutions that positively impact people's lives. Continuously expanding my expertise, I aim to bridge the gap between emerging technologies and practical, user-centered applications.
               </p>
-              <p className="text-lg mb-6">
+              <p className="text-lg mb-6 dark:text-gray-300">
                 In the short term, I am deepening my knowledge in cloud architecture and machine learning, while maintaining a solid foundation in software engineering principles. Long-term, I aspire to lead innovative projects that drive technological advancements.
               </p>
-              <p className="text-lg">
+              <p className="text-lg dark:text-gray-300">
                 I'm committed to contributing to open-source communities and mentoring the next generation of developers, believing that knowledge sharing is essential for collective growth in our field.
               </p>
             </div>

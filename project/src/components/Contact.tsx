@@ -82,14 +82,14 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
   };
   
   return (
-    <section id={id} className="py-16 bg-white">
+    <section id={id} className="py-16 bg-white dark:bg-dark-primary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">Get In Touch</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            <p className="text-gray-600 mb-8">
+            <h3 className="text-2xl font-bold mb-6 dark:text-white">Contact Information</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
               Feel free to reach out if you're looking for an intern, have a question, or just want to connect.
             </p>
             
@@ -98,9 +98,19 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                 <div className="bg-indigo-100 p-3 rounded-full text-indigo-600 mr-4">
                   <MapPin size={20} />
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Location</h4>
-                  <p className="text-gray-600">Uskudar,Istanbul, TR</p>
+                <div className="w-full">
+                  <h4 className="font-semibold mb-1 dark:text-white">Location</h4>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2">Uskudar,Istanbul, TR</p>
+                  <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 w-full max-w-xs">
+                    <img 
+                      src="https://maps.googleapis.com/maps/api/staticmap?center=Üsküdar,Istanbul&zoom=13&size=300x150&maptype=roadmap&markers=color:red%7CÜsküdar,Istanbul&key=YOUR_GOOGLE_MAPS_API_KEY" 
+                      alt="Map showing Üsküdar, Istanbul" 
+                      className="w-full h-auto"
+                    />
+                    <div className="p-2 bg-gray-50 dark:bg-gray-800 text-xs text-center text-gray-500 dark:text-gray-400">
+                      Üsküdar/Istanbul, Turkey
+                    </div>
+                  </div>
                 </div>
               </div>
               
@@ -109,8 +119,8 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
-                  <a href="mailto:your.email@example.com" className="text-indigo-600 hover:text-indigo-800">
+                  <h4 className="font-semibold mb-1 dark:text-white">Email</h4>
+                  <a href="mailto:your.email@example.com" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
                     fatihreha@proton.me
                   </a>
                 </div>
@@ -121,14 +131,14 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Phone</h4>
-                  <p className="text-gray-600">+90 0551-125-21-81</p>
+                  <h4 className="font-semibold mb-1 dark:text-white">Phone</h4>
+                  <p className="text-gray-600 dark:text-gray-300">+90 0551-125-21-81</p>
                 </div>
               </div>
             </div>
             
             <div className="mt-10">
-              <h4 className="font-semibold mb-4">Connect with me</h4>
+              <h4 className="font-semibold mb-4 dark:text-white">Connect with me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map(link => (
                   <a 
@@ -136,7 +146,7 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gray-100 hover:bg-indigo-100 text-gray-600 hover:text-indigo-600 p-3 rounded-full transition-colors"
+                    className="bg-gray-100 hover:bg-indigo-100 text-gray-600 hover:text-indigo-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-indigo-400 p-3 rounded-full transition-colors"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -147,10 +157,10 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
           </div>
           
           <div>
-            <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+            <h3 className="text-2xl font-bold mb-6 dark:text-white">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Your Name
                 </label>
                 <input
@@ -160,13 +170,13 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
                   placeholder="Fatih Reha"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Your Email
                 </label>
                 <input
@@ -176,13 +186,13 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
                   placeholder="fatihreha@example.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Subject
                 </label>
                 <input
@@ -192,13 +202,13 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
                   placeholder="Project Inquiry"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Message
                 </label>
                 <textarea
@@ -208,7 +218,7 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
                   placeholder="Your message here..."
                 />
               </div>

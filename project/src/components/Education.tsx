@@ -44,7 +44,7 @@ const Education: React.FC<EducationProps> = ({ id }) => {
   return (
     <section id={id} className="py-16 bg-gray-50 dark:bg-dark-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">Education</h2>
         
         <div className="max-w-4xl mx-auto">
           <div className="space-y-10">
@@ -54,10 +54,10 @@ const Education: React.FC<EducationProps> = ({ id }) => {
                   <div className="bg-indigo-100 dark:bg-dark-hover text-indigo-600 dark:text-indigo-400 p-2 rounded mr-3">
                     <GraduationCap size={20} />
                   </div>
-                  <h3 className="text-xl font-bold">{edu.degree}</h3>
+                  <h3 className="text-xl font-bold dark:text-white">{edu.degree}</h3>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 dark:text-gray-300 mb-4">
                   <div className="flex items-center">
                     <span className="font-medium">{edu.institution}</span>
                     <span className="mx-2">•</span>
@@ -70,12 +70,12 @@ const Education: React.FC<EducationProps> = ({ id }) => {
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">{edu.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{edu.description}</p>
                 
                 {edu.achievements && (
                   <div>
-                    <h4 className="font-semibold mb-2">Achievements & Activities</h4>
-                    <ul className="list-disc pl-5 space-y-1 text-gray-600">
+                    <h4 className="font-semibold mb-2 dark:text-white">Achievements & Activities</h4>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-300">
                       {edu.achievements.map((achievement, i) => (
                         <li key={i}>{achievement}</li>
                       ))}

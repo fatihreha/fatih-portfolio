@@ -37,22 +37,43 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
     setIsSubmitting(true);
     
     try {
+      // Create the data object to insert
+      const messageData = { 
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        created_at: new Date().toISOString()
+      };
+      
+      console.log('Attempting to insert data:', messageData);
+      
       // Insert form data into Supabase
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([
-          { 
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-            created_at: new Date().toISOString()
-          }
-        ]);
+      const { data, error } = await supabase
+        .from('portfolio_messages')
+        .insert([messageData])
+        .select();
       
       if (error) {
-        throw error;
+        console.error('Supabase error details:', {
+          message: error.message,
+          code: error.code,
+          hint: error.hint || 'No hint provided',
+          details: error.details || 'No details provided'
+        });
+        
+        // Check specifically for row-level security policy error (code 42501)
+        if (error.code === '42501') {
+          setSubmitMessage({
+            type: 'error',
+            text: 'Your message could not be sent due to security settings. Please contact me directly via email instead.'
+          });
+        } else {
+          throw error;
+        }
       }
+      
+      console.log('Message sent successfully:', data);
       
       setSubmitMessage({
         type: 'success',
@@ -71,11 +92,17 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
       setTimeout(() => {
         setSubmitMessage(null);
       }, 5000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
+      
+      // Provide more specific error message if available
+      const errorMessage = error.message && error.code 
+        ? `Error: ${error.message} (Code: ${error.code})` 
+        : 'Failed to send message. Please try again later.';
+      
       setSubmitMessage({
         type: 'error',
-        text: 'Failed to send message. Please try again later.'
+        text: errorMessage
       });
     } finally {
       setIsSubmitting(false);

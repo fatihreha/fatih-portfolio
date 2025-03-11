@@ -57,7 +57,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
           </p>
           
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Sitemap</a>
+            <a href="https://fatih-portfolio.vercel.app/sitemap.xml" className="text-gray-400 dark:text-gray-300 hover:text-white text-sm transition-colors">Sitemap</a>
           </div>
         </div>
       </div>

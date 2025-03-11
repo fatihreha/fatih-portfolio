@@ -1,7 +1,9 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/sitemap.xml", "dest": "/project/public/sitemap.xml" },
-    { "src": "/robots.txt", "dest": "/project/public/robots.txt" }
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }

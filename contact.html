@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim - Fatih Portfolio</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <!-- Google reCAPTCHA (opsiyonel) -->
+  <!-- <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"></script> -->
+</head>
+<body>
+  <!-- Header/Nav buraya eklenebilir -->
+  
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-title">
+        <h2>Benimle İletişime Geçin</h2>
+        <p>Projeleriniz veya işbirliği fırsatları hakkında konuşmak isterseniz, aşağıdaki formu doldurabilirsiniz.</p>
+      </div>
+      
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="name">İsim</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-posta</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Konu (Opsiyonel)</label>
+          <input type="text" id="subject" name="subject">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Mesajınız</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        
+        <div id="form-status" class="form-status" style="display: none;"></div>
+        
+        <button type="submit" class="submit-btn">Mesaj Gönder</button>
+      </form>
+      
+      <div class="contact-info">
+        <h3>Diğer İletişim Kanalları</h3>
+        <p>E-posta: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer buraya eklenebilir -->
+  
+  <script src="js/contact-form.js"></script>
+</body>
+</html>

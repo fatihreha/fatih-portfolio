@@ -1,0 +1,147 @@
+/* İletişim Formu Stilleri */
+.contact-section {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-form .submit-btn {
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.contact-form .submit-btn:hover {
+  background-color: #3955d1;
+}
+
+.contact-form .submit-btn:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* Form gönderim durumu */
+.contact-form.is-submitting .submit-btn {
+  position: relative;
+  padding-left: 45px;
+  pointer-events: none;
+}
+
+.contact-form.is-submitting .submit-btn::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+/* Hata mesajları */
+.form-error {
+  color: #e53935;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+.contact-form input.is-invalid,
+.contact-form textarea.is-invalid {
+  border-color: #e53935;
+  background-color: rgba(229, 57, 53, 0.05);
+}
+
+/* Durum mesajları */
+.form-status {
+  padding: 12px 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-status.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.form-status.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.form-status.info {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+/* Mobil Uyumlu Tasarım */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 0;
+  }
+  
+  .contact-form .submit-btn {
+    width: 100%;
+  }
+}

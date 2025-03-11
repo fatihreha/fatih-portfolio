@@ -6,7 +6,7 @@ create table messages (
   created_at timestamp with time zone default now() not null
 );
 
--- Bu tabloya herkesin yazabilmesi için RLS politikası ekleyelim
+-- Bu tabloya herkesin yazabilmesi için RLS politikası ekledik.
 alter table messages enable row level security;
 
 create policy "Herkes mesaj gönderebilir" on messages

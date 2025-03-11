@@ -1,4 +1,4 @@
--- Bu sorgu ile tablonuzdaki politikaları kontrol edebilirsiniz
+-- Bu sorgu ile tablonuzdaki politikaları kontrol edebiliriz
 SELECT
   schemaname,
   tablename,

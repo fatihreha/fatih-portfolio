@@ -56,7 +56,7 @@ function App() {
 
   const socialLinks = [
     { id: 'github', label: 'GitHub', icon: <Github size={20} />, url: 'https://github.com/fatihreha' },
-    { id: 'linkedin', label: 'LinkedIn', icon: <Linkedin size={20} />, url: 'https://linkedin.com/in/fatihreha' },
+    { id: 'linkedin', label: 'LinkedIn', icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/fatihrehadisci/' },
     { id: 'email', label: 'Email', icon: <Mail size={20} />, url: 'mailto:fatihreha@proton.me' },
   ];
 

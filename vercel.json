@@ -1,8 +1,8 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
-    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/sitemap.xml", "dest": "/project/public/sitemap.xml" },
+    { "src": "/robots.txt", "dest": "/project/public/robots.txt" },
     { "src": "/googlee291012cbe298264.html", "dest": "/googlee291012cbe298264.html" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }

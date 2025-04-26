@@ -2,25 +2,23 @@ import React from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
-interface NavItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  action?: () => void;
-}
-
-interface SocialLink {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  url: string;
-}
-
 interface HeaderProps {
-  navItems: NavItem[];
-  socialLinks: SocialLink[];
+  navItems: {
+    id: string;
+    label: string;
+    icon: React.ReactElement;
+    action?: () => Window | null;
+  }[];
+  socialLinks: {
+    id: string;
+    label: string;
+    icon: React.ReactElement;
+    url: string;
+  }[];
   mobileMenuOpen: boolean;
   toggleMobileMenu: () => void;
+  menuIcon: React.ReactElement;  // Add this line
+  closeIcon: React.ReactElement; // Add this line
 }
 
 const Header: React.FC<HeaderProps> = ({ 

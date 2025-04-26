@@ -40,7 +40,7 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
     {
       id: 3,
       title: "ElderAid",
-      description: "ElderAid is a mobile application designed to alleviate the challenges faced by elderly individuals in their daily lives while fostering social solidarity. The app enables elderly users to easily communicate their needs (such as shopping, cleaning, walking, or companionship) to young volunteers.",
+      description: "ElderAid is a team project and mobile application designed to alleviate the challenges faced by elderly individuals in their daily lives while fostering social solidarity. The app enables elderly users to easily communicate their needs (such as shopping, cleaning, walking, or companionship) to young volunteers.",
       image: "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
       tags: ["React Native", "Firebase", "TypeScript", "Google Maps API"],
       repoUrl: "https://github.com/ELDERAID431/elderaid431",
@@ -54,6 +54,24 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
       tags: ["React Native", "Node.js", "Babel", "DeepSeek AI"],
       repoUrl: "https://github.com/fatihreha/Yummai-0.1",
       category: "mobile"
+    },
+    {
+      id: 5,
+      title: "StudyBros",
+      description: "StudyBros is a comprehensive study timer application based on the Pomodoro technique. It helps students and professionals optimize their work sessions with smart tracking, analytics, and personalized goal setting. The application features a database connection for storing user progress and statistics.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      tags: ["Flask", "SQLite", "JavaScript", "Pomodoro"],
+      repoUrl: "https://github.com/fatihreha/StudyBros",
+      category: "fullstack"
+    },
+    {
+      id: 6,
+      title: "AIAssistedCodeEditor",
+      description: "An AI-powered code editor that leverages Gemini API to assist developers with code generation and suggestions. The application is containerized with Docker, deployed on Kubernetes, and features a CI/CD pipeline for automated deployment and synchronization between GitHub and GitLab repositories.",
+      image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      tags: ["Docker", "Kubernetes", "CI/CD", "Gemini API", "Flask"],
+      repoUrl: "https://github.com/fatihreha/AIAssistedCodeEditor",
+      category: "devops"
     }
   ];
   
@@ -66,6 +84,7 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
     { id: 'mobile', label: 'Mobile' },
     { id: 'backend', label: 'Backend' },
     { id: 'fullstack', label: 'Full Stack' },
+    { id: 'devops', label: 'DevOps' }, // New category
     { id: 'cloud', label: 'Cloud' }
   ];
   

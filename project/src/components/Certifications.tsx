@@ -21,8 +21,9 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       id: 1,
       name: "Introduction to Computer Science CS50x",
       issuer: "Harvard University",
-      date: "Ongoing",
-      description: "Currently enrolled in Harvard's renowned CS50x course, covering fundamental concepts in computer science and programming.",
+      date: "2025",
+      description: "Completed Harvard's renowned CS50x course, covering fundamental concepts in computer science and programming.",
+      credentialUrl: "https://cs50.harvard.edu/certificates/f1c31cc8-b0d0-4aa4-acb5-52b97e837c44",
       image: "https://pll.harvard.edu/sites/default/files/styles/16_9_medium/public/course/CS50x_pll.png"
     },
     {
@@ -68,7 +69,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {certifications.map((cert) => (
-            <div key={cert.id} className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md flex flex-col hover-scale animate-fade-in-up">
+            <div key={cert.id} className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md flex flex-col hover:scale-105 transition-transform">
               <div className="h-40 overflow-hidden">
                 <img 
                   src={cert.image} 

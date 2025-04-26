@@ -3,7 +3,7 @@ import {
   Github, 
   Linkedin, 
   Mail, 
-  Menu, 
+  Menu,
   X, 
   User, 
   Briefcase, 
@@ -60,7 +60,7 @@ function App() {
     { id: 'email', label: 'Email', icon: <Mail size={20} />, url: 'mailto:fatihreha@proton.me' },
   ];
 
-  const resumeUrl = 'https://drive.google.com/file/d/1wvRfgCAeF_TfJYlG3pre2FotqYLVO-WG/view?usp=sharing';
+  const resumeUrl = 'https://drive.google.com/file/d/135D--JhjJFVkjFuslJznimgf3vQAsZ8E/view?usp=sharing';
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-secondary text-gray-800 dark:text-gray-200">
@@ -69,6 +69,8 @@ function App() {
         socialLinks={socialLinks} 
         mobileMenuOpen={mobileMenuOpen} 
         toggleMobileMenu={toggleMobileMenu} 
+        menuIcon={<Menu size={20} />}
+        closeIcon={<X size={20} />}
       />
       
       <main>

@@ -23,7 +23,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       issuer: "Harvard University",
       date: "2025",
       description: "Completed Harvard's renowned CS50x course, covering fundamental concepts in computer science and programming.",
-      credentialUrl: "https://cs50.harvard.edu/certificates/f1c31cc8-b0d0-4aa4-acb5-52b97e837c44",
+      credentialUrl: "https://courses.edx.org/certificates/0c936d5af4cb499a9bf5ad0b72cf9191",
       image: "https://pll.harvard.edu/sites/default/files/styles/16_9_medium/public/course/CS50x_pll.png"
     },
     {

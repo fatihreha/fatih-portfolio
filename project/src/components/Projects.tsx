@@ -72,6 +72,15 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
       tags: ["Docker", "Kubernetes", "CI/CD", "Gemini API", "Flask"],
       repoUrl: "https://github.com/fatihreha/AIAssistedCodeEditor",
       category: "devops"
+    },
+    {
+      id: 7,
+      title: "Sustainable for Future",
+      description: "This project is a modern web application that introduces the United Nations Sustainable Development Goals (SDGs) through visually engaging, dedicated pages for each of the 17 goals. In addition to informative content and interactive design, the site features AI-powered tools—such as a Sustainable Product Recommender and a Carbon Calculator—that leverage artificial intelligence to provide personalized recommendations and insights, helping users make more sustainable choices.",
+      image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      tags: ["React", "TypeScript", "Tailwind CSS", "OpenAI", "Vite"],
+      repoUrl: "https://github.com/fatihreha/SustainableForFuture",
+      category: "frontend"
     }
   ];
   
@@ -84,7 +93,8 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
     { id: 'mobile', label: 'Mobile' },
     { id: 'backend', label: 'Backend' },
     { id: 'fullstack', label: 'Full Stack' },
-    { id: 'devops', label: 'DevOps' }, // New category
+    { id: 'frontend', label: 'Frontend' },
+    { id: 'devops', label: 'DevOps' },
     { id: 'cloud', label: 'Cloud' }
   ];
   

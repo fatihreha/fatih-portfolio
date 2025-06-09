@@ -48,15 +48,6 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
     },
     {
       id: 4,
-      title: "Yummai",
-      description: "Yummai is a next-generation mobile app developed as a collaborative project to revolutionize how users discover and prepare food. Powered by DeepSeek AI, it offers a seamless and interactive culinary experience. Features include instant recipe identification through photo capture, smart ingredient recognition for tailored recipe suggestions, personalized AI chatbot for meal recommendations, cost-effective shopping with real-time ingredient price comparisons, and advanced DeepSeek AI integration for natural interactions. Yummai brings AI-driven cooking to your fingertips!",
-      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-      tags: ["React Native", "Node.js", "Babel", "DeepSeek AI"],
-      repoUrl: "https://github.com/fatihreha/Yummai-0.1",
-      category: "mobile"
-    },
-    {
-      id: 5,
       title: "StudyBros",
       description: "StudyBros is a comprehensive study timer application based on the Pomodoro technique. It helps students and professionals optimize their work sessions with smart tracking, analytics, and personalized goal setting. The application features a database connection for storing user progress and statistics.",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -65,7 +56,7 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
       category: "fullstack"
     },
     {
-      id: 6,
+      id: 5,
       title: "AIAssistedCodeEditor",
       description: "An AI-powered code editor that leverages Gemini API to assist developers with code generation and suggestions. The application is containerized with Docker, deployed on Kubernetes, and features a CI/CD pipeline for automated deployment and synchronization between GitHub and GitLab repositories.",
       image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -74,7 +65,7 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
       category: "devops"
     },
     {
-      id: 7,
+      id: 6,
       title: "Sustainable for Future",
       description: "This project is a modern web application that introduces the United Nations Sustainable Development Goals (SDGs) through visually engaging, dedicated pages for each of the 17 goals. In addition to informative content and interactive design, the site features AI-powered tools—such as a Sustainable Product Recommender and a Carbon Calculator—that leverage artificial intelligence to provide personalized recommendations and insights, helping users make more sustainable choices.",
       image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",

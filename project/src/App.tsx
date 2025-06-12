@@ -60,7 +60,7 @@ function App() {
     { id: 'email', label: 'Email', icon: <Mail size={20} />, url: 'mailto:fatihreha@proton.me' },
   ];
 
-  const resumeUrl = 'https://drive.google.com/file/d/135D--JhjJFVkjFuslJznimgf3vQAsZ8E/view?usp=sharing';
+  const resumeUrl = 'https://drive.google.com/file/d/1-HCiVoVoPNeVG2nRBzzL6NHpaRcnbNMJ/view?usp=sharing';
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-secondary text-gray-800 dark:text-gray-200">

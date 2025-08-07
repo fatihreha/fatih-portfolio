@@ -19,6 +19,17 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
   const jobs: Job[] = [
     {
       id: 1,
+      title: "Project Management Intern",
+      company: "Sca Social",
+      location: "Istanbul, TR",
+      period: "July 2025 - September 2025",
+      description: [
+        "Leveraging comprehensive training in Management & Organization, AI & Data Science, Project Management, and IT Law while developing a final capstone project for presentation."
+      ],
+      technologies: ["Project Management", "AI & Data Science", "Management & Organization", "IT Law"]
+    },
+    {
+      id: 2,
       title: "System Engineering Intern",
       company: "Yapi Kredi Technology",
       location: "Cayirova, Kocaeli",

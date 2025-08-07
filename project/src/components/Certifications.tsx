@@ -46,19 +46,39 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
     },
     {
       id: 4,
-      name: "Python for Machine Learning",
-      issuer: "Global AI Hub",
-      date: "2023",
-      description: "Applied machine learning techniques, including supervised and unsupervised learning, feature engineering, and model evaluation, using Python libraries such as NumPy, pandas, and Matplotlib.",
-      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+      name: "DevOps Essentials",
+      issuer: "IBM",
+      date: "2025",
+      description: "Comprehensive training in DevOps practices, covering continuous integration, continuous deployment, automation, and collaboration between development and operations teams.",
+      credentialUrl: "https://www.credly.com/badges/29c61760-6326-47ae-87dd-d7e45c196384/public_url",
+      image: "https://images.credly.com/size/340x340/images/60cf69ce-6129-425d-9a42-7732fa07da1e/image.png"
     },
     {
       id: 5,
-      name: "Introduction to Python",
-      issuer: "Global AI Hub",
-      date: "2023",
-      description: "Developed skills in Python programming with a focus on data types, control flow, functions, Object Oriented Programming(OOP), and file handling.",
-      image: "https://www.python.org/static/community_logos/python-logo-generic.svg"
+      name: "HCCDA: Tech Essentials",
+      issuer: "Huawei",
+      date: "2025",
+      description: "Huawei Cloud Computing Developer Associate certification covering cloud fundamentals, infrastructure services, and essential cloud technologies.",
+      credentialUrl: "https://support.huawei.com/enterprise/en/certification/HWENDCTEDA482618",
+      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGRkZGRiIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRjAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkhVQVdFSTwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMzMzMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DTE9VRDwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EZXZLB2xvcGVyPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjY2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNlcnRpZmljYXRpb248L3RleHQ+Cjwvc3ZnPg=="
+    },
+    {
+      id: 6,
+      name: "McKinsey.org Forward Program",
+      issuer: "McKinsey & Company",
+      date: "2025",
+      description: "Comprehensive program focused on digital transformation, leadership skills, and strategic thinking in the modern business environment.",
+      credentialUrl: "https://www.credly.com/badges/489280a7-e657-40e4-9cea-3f89d96aec0e/linked_in_profile",
+      image: "https://images.credly.com/size/340x340/images/9e9e7ef7-384f-4636-8743-1b89a68fb46b/image.png"
+    },
+    {
+      id: 7,
+      name: "AWS Educate Introduction to Cloud 101",
+      issuer: "Amazon Web Services (AWS)",
+      date: "2025",
+      description: "Foundational course covering cloud computing concepts, AWS core services, and basic cloud architecture principles.",
+      credentialUrl: "https://www.credly.com/badges/84135c4c-fdc2-490a-8ca5-9e54ef039e0e/linked_in_profile",
+      image: "https://images.credly.com/size/340x340/images/8d67bbf4-128b-4141-b5f1-1bc61bbfbaa6/image.png"
     }
   ];
   

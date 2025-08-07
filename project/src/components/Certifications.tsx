@@ -24,7 +24,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       date: "2025",
       description: "Huawei Cloud Computing Developer Associate certification covering cloud fundamentals, infrastructure services, and essential cloud technologies.",
       credentialUrl: "https://drive.google.com/file/d/1BeQ3JAwNrzkKzBOzFiCVTwQDEyZUA-hE/view?usp=sharing",
-      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGRkZGRiIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwLCAzMCkiPgogICAgPHBhdGggZD0iTTAgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogICAgPHBhdGggZD0iTTAgMjBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogICAgPHBhdGggZD0iTTAgNDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogICAgPHBhdGggZD0iTTAgNjBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogIDwvZz4KICA8dGV4dCB4PSIxNTAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGMDAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SFVBV0VJPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTYwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjY2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNsb3VkIENlcnRpZmljYXRpb248L3RleHQ+Cjwvc3ZnPg=="
+      image: "https://egirisim.com/wp-content/uploads/2023/07/huawei-cloud.jpg"
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       date: "2025",
       description: "Comprehensive training in DevOps practices, covering continuous integration, continuous deployment, automation, and collaboration between development and operations teams.",
       credentialUrl: "https://www.credly.com/badges/29c61760-6326-47ae-87dd-d7e45c196384/public_url",
-      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwNzNFNyIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JQk08L3RleHQ+CiAgPHRleHQgeD0iMTUwIiB5PSIxMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRldk9wcyBFc3NlbnRpYWxzPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DZXJ0aWZpY2F0aW9uPC90ZXh0Pgo8L3N2Zz4="
+      image: "https://yt3.googleusercontent.com/dhVlUr4qzdw97K77mitoVSZk8u3KLl4hWCeiAVNuoqG1W7WmcN86GSIl96Ge1PeauemTwCl5TA=s900-c-k-c0x00ffffff-no-rj"
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       date: "2025",
       description: "Comprehensive program focused on digital transformation, leadership skills, and strategic thinking in the modern business environment.",
       credentialUrl: "https://www.credly.com/badges/489280a7-e657-40e4-9cea-3f89d96aec0e/linked_in_profile",
-      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMzA2NiIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NY0tpbnNleSAmPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q29tcGFueTwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Rm9yd2FyZCBQcm9ncmFtPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTYwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DZXJ0aWZpY2F0aW9uPC90ZXh0Pgo8L3N2Zz4="
+      image: "https://egirisim.com/wp-content/uploads/2020/02/mckinsey-bankacilik-raporu.jpeg"
     },
     {
       id: 4,

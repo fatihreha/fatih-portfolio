@@ -19,6 +19,33 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
   const certifications: Certification[] = [
     {
       id: 1,
+      name: "HCCDA: Tech Essentials",
+      issuer: "Huawei",
+      date: "2025",
+      description: "Huawei Cloud Computing Developer Associate certification covering cloud fundamentals, infrastructure services, and essential cloud technologies.",
+      credentialUrl: "https://drive.google.com/file/d/1BeQ3JAwNrzkKzBOzFiCVTwQDEyZUA-hE/view?usp=sharing",
+      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGRkZGRiIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwLCAzMCkiPgogICAgPHBhdGggZD0iTTAgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogICAgPHBhdGggZD0iTTAgMjBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogICAgPHBhdGggZD0iTTAgNDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogICAgPHBhdGggZD0iTTAgNjBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1em0yMCAwaDEwdjE1aC0xMHptMTUgMGgxNXYxNWgtMTV6bTIwIDBoMTV2MTVoLTE1eiIgZmlsbD0iI0ZGMDAwMCIvPgogIDwvZz4KICA8dGV4dCB4PSIxNTAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGMDAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SFVBV0VJPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTYwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjY2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNsb3VkIENlcnRpZmljYXRpb248L3RleHQ+Cjwvc3ZnPg=="
+    },
+    {
+      id: 2,
+      name: "DevOps Essentials",
+      issuer: "IBM",
+      date: "2025",
+      description: "Comprehensive training in DevOps practices, covering continuous integration, continuous deployment, automation, and collaboration between development and operations teams.",
+      credentialUrl: "https://www.credly.com/badges/29c61760-6326-47ae-87dd-d7e45c196384/public_url",
+      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwNzNFNyIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iODAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0OCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JQk08L3RleHQ+CiAgPHRleHQgeD0iMTUwIiB5PSIxMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRldk9wcyBFc3NlbnRpYWxzPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DZXJ0aWZpY2F0aW9uPC90ZXh0Pgo8L3N2Zz4="
+    },
+    {
+      id: 3,
+      name: "McKinsey.org Forward Program",
+      issuer: "McKinsey & Company",
+      date: "2025",
+      description: "Comprehensive program focused on digital transformation, leadership skills, and strategic thinking in the modern business environment.",
+      credentialUrl: "https://www.credly.com/badges/489280a7-e657-40e4-9cea-3f89d96aec0e/linked_in_profile",
+      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMzA2NiIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NY0tpbnNleSAmPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q29tcGFueTwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Rm9yd2FyZCBQcm9ncmFtPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTYwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DZXJ0aWZpY2F0aW9uPC90ZXh0Pgo8L3N2Zz4="
+    },
+    {
+      id: 4,
       name: "Introduction to Computer Science CS50x",
       issuer: "Harvard University",
       date: "2025",
@@ -27,7 +54,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://pll.harvard.edu/sites/default/files/styles/16_9_medium/public/course/CS50x_pll.png"
     },
     {
-      id: 2,
+      id: 5,
       name: "AWS Cloud Practitioner'23",
       issuer: "Yapı Kredi Technology",
       date: "2024",
@@ -36,40 +63,13 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.634f8a21af2e0e956ed8905a72366146ba22b74c.png"
     },
     {
-      id: 3,
+      id: 6,
       name: "Cloud Technologies Workshop",
       issuer: "Tech Istanbul",
       date: "2024",
       description: "Experienced AWS IAM for identity and access management, configured EC2 instances for virtual computing, and implemented S3 storage solutions for scalable data management.",
       credentialUrl: "https://www.linkedin.com/in/fatihrehadisci/details/certifications/1723644514532/single-media-viewer",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80"
-    },
-    {
-      id: 4,
-      name: "DevOps Essentials",
-      issuer: "IBM",
-      date: "2025",
-      description: "Comprehensive training in DevOps practices, covering continuous integration, continuous deployment, automation, and collaboration between development and operations teams.",
-      credentialUrl: "https://www.credly.com/badges/29c61760-6326-47ae-87dd-d7e45c196384/public_url",
-      image: "https://images.credly.com/size/340x340/images/60cf69ce-6129-425d-9a42-7732fa07da1e/image.png"
-    },
-    {
-      id: 5,
-      name: "HCCDA: Tech Essentials",
-      issuer: "Huawei",
-      date: "2025",
-      description: "Huawei Cloud Computing Developer Associate certification covering cloud fundamentals, infrastructure services, and essential cloud technologies.",
-      credentialUrl: "https://support.huawei.com/enterprise/en/certification/HWENDCTEDA482618",
-      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0ZGRkZGRiIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNGRjAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkhVQVdFSTwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMzMzMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DTE9VRDwvdGV4dD4KICA8dGV4dCB4PSIxNTAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNjY2NjY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EZXZLB2xvcGVyPC90ZXh0PgogIDx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjY2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNlcnRpZmljYXRpb248L3RleHQ+Cjwvc3ZnPg=="
-    },
-    {
-      id: 6,
-      name: "McKinsey.org Forward Program",
-      issuer: "McKinsey & Company",
-      date: "2025",
-      description: "Comprehensive program focused on digital transformation, leadership skills, and strategic thinking in the modern business environment.",
-      credentialUrl: "https://www.credly.com/badges/489280a7-e657-40e4-9cea-3f89d96aec0e/linked_in_profile",
-      image: "https://images.credly.com/size/340x340/images/9e9e7ef7-384f-4636-8743-1b89a68fb46b/image.png"
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80"
     },
     {
       id: 7,

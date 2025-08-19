@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 interface HeaderProps {
   navItems: {
@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({
                     <a 
                       key={item.id}
                       href={item.action ? undefined : `#${item.id}`}
-                      onClick={(e) => {
+                      onClick={() => {
                         if (item.action) {
                           item.action();
                         }

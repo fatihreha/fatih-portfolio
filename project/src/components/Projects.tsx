@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 interface ProjectProps {
   id: string;
@@ -100,10 +101,10 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-full text-sm font-medium btn-ripple hover-bounce ${
                   activeFilter === filter.id
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white dark:bg-dark-primary text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-hover'
+                    ? 'bg-indigo-600 text-white hover-glow'
+                    : 'bg-white dark:bg-dark-primary text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-hover hover-lift'
                 }`}
               >
                 {filter.label}
@@ -114,23 +115,23 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map(project => (
-            <div key={project.id} className="bg-white dark:bg-dark-primary rounded-lg shadow-md overflow-hidden hover-scale animate-fade-in-up">
+            <div key={project.id} className="bg-white dark:bg-dark-primary rounded-lg shadow-md overflow-hidden card-hover animate-fade-in-up hover-glow">
               <div className="h-48 overflow-hidden">
-                <img 
+                <LazyImage 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover-scale"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white">{project.title}</h3>
+              <div className="p-6 card-content">
+                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white text-glow">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-1 rounded-full text-sm font-medium"
+                      className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-1 rounded-full text-sm font-medium hover-bounce"
                     >
                       {tag}
                     </span>
@@ -141,9 +142,9 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300"
+                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 hover-slide hover-glow"
                 >
-                  <Github size={20} className="mr-2" />
+                  <Github size={20} className="mr-2 icon-spin" />
                   <span>View Repository</span>
                 </a>
               </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, AlertCircle, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import OpenStreetMap from './OpenStreetMap';
 
@@ -17,42 +17,129 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
   
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [touched, setTouched] = useState<{[key: string]: boolean}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
   
+  // Validation functions
+  const validateEmail = (email: string): string => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) return 'Email is required';
+    if (!emailRegex.test(email)) return 'Please enter a valid email address';
+    return '';
+  };
+
+  const validateName = (name: string): string => {
+    if (!name.trim()) return 'Name is required';
+    if (name.trim().length < 2) return 'Name must be at least 2 characters';
+    if (name.trim().length > 50) return 'Name must be less than 50 characters';
+    return '';
+  };
+
+
+
+  const validateMessage = (message: string): string => {
+    if (!message.trim()) return 'Message is required';
+    if (message.trim().length < 10) return 'Message must be at least 10 characters';
+    if (message.trim().length > 1000) return 'Message must be less than 1000 characters';
+    return '';
+  };
+
+  const validateField = (name: string, value: string): string => {
+    switch (name) {
+      case 'name': return validateName(value);
+      case 'email': return validateEmail(value);
+      case 'message': return validateMessage(value);
+      default: return '';
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+
+    // Real-time validation
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({
+        ...prev,
+        [name]: error
+      }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }));
+
+    const error = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: error
     }));
   };
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form submission started');
+    
+    // Validate all fields
+    const newErrors: {[key: string]: string} = {};
+    Object.keys(formData).forEach(key => {
+      const error = validateField(key, formData[key as keyof typeof formData]);
+      if (error) newErrors[key] = error;
+    });
+
+    setErrors(newErrors);
+    setTouched({
+      name: true,
+      email: true,
+      message: true
+    });
+
+    // If there are errors, don't submit
+    if (Object.keys(newErrors).some(key => newErrors[key])) {
+      console.log('Form validation failed:', newErrors);
+      setSubmitMessage({
+        type: 'error',
+        text: 'Please fix the errors above before submitting.'
+      });
+      return;
+    }
+
+    console.log('Form validation passed, starting submission...');
     setIsSubmitting(true);
     
     try {
       // Create the data object to insert
       const messageData = { 
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        created_at: new Date().toISOString()
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim()
       };
       
       console.log('Attempting to insert data:', messageData);
+      console.log('Supabase client status:', supabase ? 'Connected' : 'Not connected');
       
       // Insert form data into Supabase
       const { data, error } = await supabase
-        .from('portfolio_messages')
+        .from('contact_messages')
         .insert([messageData])
         .select();
+      
+      console.log('Supabase response:', { data, error });
       
       if (error) {
         console.error('Supabase error details:', {
@@ -62,15 +149,24 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
           details: error.details || 'No details provided'
         });
         
-        // Check specifically for row-level security policy error (code 42501)
+        // Check for specific error types and provide user-friendly messages
         if (error.code === '42501') {
           setSubmitMessage({
             type: 'error',
-            text: 'Your message could not be sent due to security settings. Please contact me directly via email instead.'
+            text: 'Unable to send message due to database permissions. Please contact me directly at fatihreha@proton.me'
+          });
+        } else if (error.code === '23505') {
+          setSubmitMessage({
+            type: 'error',
+            text: 'This message appears to be a duplicate. Please try again with different content.'
           });
         } else {
-          throw error;
+          setSubmitMessage({
+            type: 'error',
+            text: `Failed to send message (${error.code}): ${error.message}. Please contact me directly at fatihreha@proton.me`
+          });
         }
+        return;
       }
       
       console.log('Message sent successfully:', data);
@@ -84,27 +180,25 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
       setFormData({
         name: '',
         email: '',
-        subject: '',
         message: ''
       });
+      
+      setTouched({});
+      setErrors({});
       
       // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitMessage(null);
       }, 5000);
     } catch (error: any) {
-      console.error('Error sending message:', error);
-      
-      // Provide more specific error message if available
-      const errorMessage = error.message && error.code 
-        ? `Error: ${error.message} (Code: ${error.code})` 
-        : 'Failed to send message. Please try again later.';
+      console.error('Unexpected error sending message:', error);
       
       setSubmitMessage({
         type: 'error',
-        text: errorMessage
+        text: `An unexpected error occurred: ${error.message}. Please try again or contact me directly at fatihreha@proton.me`
       });
     } finally {
+      console.log('Form submission completed, setting isSubmitting to false');
       setIsSubmitting(false);
     }
   };
@@ -191,66 +285,115 @@ const Contact: React.FC<ContactProps> = ({ id, socialLinks }) => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Your Name
+                  Your Name *
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Fatih Reha"
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white transition-colors ${
+                      errors.name && touched.name
+                        ? 'border-red-500 dark:border-red-400'
+                        : formData.name && !errors.name
+                        ? 'border-green-500 dark:border-green-400'
+                        : 'border-gray-300 dark:border-gray-600'
+                    }`}
+                    placeholder="Enter your full name"
+                  />
+                  {formData.name && !errors.name && touched.name && (
+                    <CheckCircle className="absolute right-3 top-2.5 h-5 w-5 text-green-500" />
+                  )}
+                  {errors.name && touched.name && (
+                    <AlertCircle className="absolute right-3 top-2.5 h-5 w-5 text-red-500" />
+                  )}
+                </div>
+                {errors.name && touched.name && (
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1" />
+                    {errors.name}
+                  </p>
+                )}
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Your Email
+                  Your Email *
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="fatihreha@example.com"
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white transition-colors ${
+                      errors.email && touched.email
+                        ? 'border-red-500 dark:border-red-400'
+                        : formData.email && !errors.email
+                        ? 'border-green-500 dark:border-green-400'
+                        : 'border-gray-300 dark:border-gray-600'
+                    }`}
+                    placeholder="your.email@example.com"
+                  />
+                  {formData.email && !errors.email && touched.email && (
+                    <CheckCircle className="absolute right-3 top-2.5 h-5 w-5 text-green-500" />
+                  )}
+                  {errors.email && touched.email && (
+                    <AlertCircle className="absolute right-3 top-2.5 h-5 w-5 text-red-500" />
+                  )}
+                </div>
+                {errors.email && touched.email && (
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1" />
+                    {errors.email}
+                  </p>
+                )}
               </div>
               
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Project Inquiry"
-                />
-              </div>
+
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Message
+                  Message *
+                  <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
+                    ({formData.message.length}/1000 characters)
+                  </span>
                 </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Your message here..."
-                />
+                <div className="relative">
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    rows={5}
+                    className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white transition-colors resize-none ${
+                      errors.message && touched.message
+                        ? 'border-red-500 dark:border-red-400'
+                        : formData.message && !errors.message
+                        ? 'border-green-500 dark:border-green-400'
+                        : 'border-gray-300 dark:border-gray-600'
+                    }`}
+                    placeholder="Tell me about your project, question, or how I can help you..."
+                  />
+                  {formData.message && !errors.message && touched.message && (
+                    <CheckCircle className="absolute right-3 top-3 h-5 w-5 text-green-500" />
+                  )}
+                  {errors.message && touched.message && (
+                    <AlertCircle className="absolute right-3 top-3 h-5 w-5 text-red-500" />
+                  )}
+                </div>
+                {errors.message && touched.message && (
+                  <p className="mt-1 text-sm text-red-600 dark:text-red-400 flex items-center">
+                    <AlertCircle className="h-4 w-4 mr-1" />
+                    {errors.message}
+                  </p>
+                )}
               </div>
               
               {submitMessage && (

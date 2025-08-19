@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 
 // Dynamically import Leaflet for SSR compatibility
 interface LeafletMapProps {
@@ -12,7 +12,7 @@ interface LeafletMapProps {
 
 const OpenStreetMap: React.FC<LeafletMapProps> = ({ center, zoom, width, height }) => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<L.Map | null>(null);
   const { isDarkMode } = useTheme();
   const leafletLoaded = useRef(false);
 
@@ -42,14 +42,14 @@ const OpenStreetMap: React.FC<LeafletMapProps> = ({ center, zoom, width, height 
         
         // Override Icon methods to add accessibility attributes
         if (!leafletLoaded.current) {
-          // @ts-ignore - Type tanımlarında olmayan metodlara erişim
+          // @ts-expect-error - Leaflet type definitions don't include internal icon creation methods
           const originalIconCreateIcon = L.Icon.Default.prototype._createIcon;
-          // @ts-ignore
+          // @ts-expect-error - Leaflet type definitions don't include internal shadow creation methods
           const originalIconCreateShadow = L.Icon.Default.prototype._createShadow;
           
-          // @ts-ignore
+          // @ts-expect-error - Overriding internal Leaflet method for accessibility
           L.Icon.Default.prototype._createIcon = function(oldIcon) {
-            // @ts-ignore
+            // @ts-expect-error - Calling original internal method
             const icon = originalIconCreateIcon.call(this, oldIcon);
             if (icon) {
               icon.alt = 'Map marker icon';
@@ -57,9 +57,9 @@ const OpenStreetMap: React.FC<LeafletMapProps> = ({ center, zoom, width, height 
             return icon;
           };
           
-          // @ts-ignore
+          // @ts-expect-error - Overriding internal Leaflet method for accessibility
           L.Icon.Default.prototype._createShadow = function(oldIcon) {
-            // @ts-ignore
+            // @ts-expect-error - Calling original internal method
             const shadow = originalIconCreateShadow.call(this, oldIcon);
             if (shadow) {
               shadow.alt = 'Map marker shadow';
@@ -68,11 +68,11 @@ const OpenStreetMap: React.FC<LeafletMapProps> = ({ center, zoom, width, height 
           };
           
           // Add alt attributes to tile images
-          // @ts-ignore
+          // @ts-expect-error - Leaflet type definitions don't include createTile method override
           const originalTileLayerCreateTile = L.TileLayer.prototype.createTile;
-          // @ts-ignore
+          // @ts-expect-error - Overriding internal Leaflet method for accessibility
           L.TileLayer.prototype.createTile = function(coords, done) {
-            // @ts-ignore
+            // @ts-expect-error - Calling original internal method
             const tile = originalTileLayerCreateTile.call(this, coords, done);
             if (tile) {
               (tile as HTMLImageElement).alt = 'Map tile image';
@@ -111,7 +111,7 @@ const OpenStreetMap: React.FC<LeafletMapProps> = ({ center, zoom, width, height 
           const map = mapInstanceRef.current;
           
           // Remove existing tile layers
-          map.eachLayer((layer: any) => {
+          map.eachLayer((layer: L.Layer) => {
             if (layer instanceof L.TileLayer) {
               map.removeLayer(layer);
             }

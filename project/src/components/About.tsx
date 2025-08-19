@@ -17,9 +17,9 @@ const About: React.FC<AboutProps> = ({ id }) => {
             <div className="relative">
               <div className="aspect-square rounded-full overflow-hidden border-4 border-indigo-100 dark:border-gray-700">
                 <img 
-                  src="/fthrhdsc.jpg" 
+                  src="/fthrhdsci.JPEG" 
                   alt="Profile" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 bg-indigo-600 text-white p-3 rounded-full">
@@ -31,7 +31,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
           <div className="w-full md:w-2/3">
             <h3 className="text-2xl font-bold mb-4 dark:text-white">Fatih Reha Dişçi</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Senior IT student aiming to specialize in DevOps and Cloud technologies, continuously developing skills in these fields, with curiosity about exploring other IT domains to broaden technical expertise.
+            Bachelor's degree of IT graduate specializing in DevOps and Cloud technologies, continuously developing expertise in these fields, with curiosity about exploring other IT domains to broaden technical knowledge and professional capabilities.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">

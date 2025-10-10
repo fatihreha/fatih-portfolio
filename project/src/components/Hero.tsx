@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-indigo-100 animate-fade-in-up text-glow">
-            Senior IT Student
+            IT graduate
           </p>
           <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto animate-fade-in-up">
             Welcome to my portfolio website.

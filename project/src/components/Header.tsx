@@ -48,42 +48,45 @@ const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 h-8 flex items-center justify-between px-4 text-xs font-medium select-none shadow-sm transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 h-8 flex items-center justify-between px-2 sm:px-4 text-xs font-medium select-none shadow-sm transition-colors duration-300">
       {/* Left Menu Items */}
-      <div className="flex items-center gap-4">
-        <div className="font-bold text-sm hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-pointer transition-colors dark:text-gray-200">
-          
-        </div>
-        <div className="font-bold text-gray-800 dark:text-gray-100 hidden md:block hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-pointer">
+      <div className="flex items-center gap-2">
+        <div className="font-bold text-gray-800 dark:text-gray-100 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-pointer text-xs sm:text-sm truncate max-w-[120px] sm:max-w-none">
           Fatih Portfolio
         </div>
       </div>
 
       {/* Right Menu Items */}
-      <div className="flex items-center gap-3 text-gray-700 dark:text-gray-200">
-        <div className="hidden sm:flex items-center gap-4 mr-2">
-          <button
-            onClick={toggleTheme}
-            className="hover:bg-gray-200/50 dark:hover:bg-gray-700/50 p-1 rounded transition-colors focus:outline-none"
-            aria-label="Toggle Dark Mode"
-          >
-            {isDark ? <Moon size={14} /> : <Sun size={14} />}
-          </button>
+      <div className="flex items-center gap-2 sm:gap-3 text-gray-700 dark:text-gray-200">
+        {/* Dark Mode Toggle - Always visible */}
+        <button
+          onClick={toggleTheme}
+          className="hover:bg-gray-200/50 dark:hover:bg-gray-700/50 p-1 rounded transition-colors focus:outline-none"
+          aria-label="Toggle Dark Mode"
+        >
+          {isDark ? <Moon size={14} /> : <Sun size={14} />}
+        </button>
+
+        {/* Search - Always visible */}
+        <button
+          onClick={onSearchClick}
+          className="flex items-center gap-1 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 p-1 sm:px-2 sm:py-1 rounded transition-colors focus:outline-none"
+          aria-label="Spotlight Search"
+        >
+          <Search size={14} className="opacity-80" />
+          <span className="hidden md:inline text-[10px] text-gray-400 dark:text-gray-500 font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">⌘K</span>
+        </button>
+
+        {/* Status Icons - Hidden on mobile */}
+        <div className="hidden sm:flex items-center gap-2">
           <BatteryMedium size={14} className="opacity-80" />
           <Wifi size={14} className="opacity-80" />
-          <button
-            onClick={onSearchClick}
-            className="flex items-center gap-1 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-1 rounded transition-colors focus:outline-none"
-            aria-label="Spotlight Search"
-          >
-            <Search size={14} className="opacity-80" />
-            <span className="hidden md:inline text-[10px] text-gray-400 dark:text-gray-500 font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">⌘K</span>
-          </button>
         </div>
 
-        <div className="flex items-center gap-2 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-default transition-colors">
+        {/* Time/Date */}
+        <div className="flex items-center gap-1 sm:gap-2 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-1 sm:px-2 py-0.5 rounded cursor-default transition-colors">
           <span className="hidden sm:inline">{formatDate(time)}</span>
-          <span>{formatTime(time)}</span>
+          <span className="text-[10px] sm:text-xs">{formatTime(time)}</span>
         </div>
       </div>
     </header>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Command, ArrowRight, User, Briefcase, Code, GraduationCap, Mail, BookOpen, Hash } from 'lucide-react';
+import { Search, Command, ArrowRight, User, Briefcase, Code, GraduationCap, Mail, BookOpen, Hash, Github } from 'lucide-react';
 
 interface SpotlightProps {
     isOpen: boolean;
@@ -19,6 +19,7 @@ const Spotlight: React.FC<SpotlightProps> = ({ isOpen, onClose, onNavigate }) =>
         { id: 'skills', title: 'Skills & Technologies', type: 'Section', icon: <Code size={18} />, keywords: ['react', 'typescript', 'python', 'aws', 'docker'] },
         { id: 'experience', title: 'Work Experience', type: 'Section', icon: <Briefcase size={18} />, keywords: ['job', 'internship', 'career', 'yapi kredi', 'sca', 'imm'] },
         { id: 'projects', title: 'Projects', type: 'Section', icon: <Hash size={18} />, keywords: ['portfolio', 'sportpulse', 'bind', 'code', 'github'] },
+        { id: 'github', title: 'GitHub Activity', type: 'Section', icon: <Github size={18} />, keywords: ['repos', 'commits', 'contributions', 'open source'] },
         { id: 'education', title: 'Education', type: 'Section', icon: <GraduationCap size={18} />, keywords: ['university', 'degree', 'yeditepe', 'school'] },
         { id: 'graduation-thesis', title: 'Graduation Thesis', type: 'Section', icon: <BookOpen size={18} />, keywords: ['ci/cd', 'kubernetes', 'jenkins', 'gitlab', 'devops'] },
         { id: 'contact', title: 'Contact', type: 'Section', icon: <Mail size={18} />, keywords: ['email', 'hire', 'message', 'social'] },
@@ -125,8 +126,8 @@ const Spotlight: React.FC<SpotlightProps> = ({ isOpen, onClose, onNavigate }) =>
                                         key={item.id}
                                         onClick={() => handleSelect(item.id)}
                                         className={`px-4 py-3 flex items-center justify-between cursor-pointer transition-colors ${index === selectedIndex
-                                                ? 'bg-indigo-500 text-white'
-                                                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                            ? 'bg-indigo-500 text-white'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                                             }`}
                                         onMouseEnter={() => setSelectedIndex(index)}
                                     >

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
-import { User, Code, Briefcase, GraduationCap, Mail, BookOpen, FileText } from 'lucide-react';
+import { User, Code, Briefcase, GraduationCap, Mail, BookOpen, Github } from 'lucide-react';
 
 interface DockProps {
     onNavigate: (id: string) => void;
@@ -14,6 +14,7 @@ const Dock: React.FC<DockProps> = ({ onNavigate }) => {
         { id: 'skills', label: 'Skills', icon: <Code size={24} />, color: 'bg-indigo-500' },
         { id: 'experience', label: 'Exp', icon: <Briefcase size={24} />, color: 'bg-orange-500' },
         { id: 'projects', label: 'Projects', icon: <Code size={24} />, color: 'bg-yellow-500' },
+        { id: 'github', label: 'GitHub', icon: <Github size={24} />, color: 'bg-gray-700' },
         { id: 'education', label: 'Edu', icon: <GraduationCap size={24} />, color: 'bg-red-500' },
         { id: 'graduation-thesis', label: 'Thesis', icon: <BookOpen size={24} />, color: 'bg-emerald-500' },
         { id: 'contact', label: 'Contact', icon: <Mail size={24} />, color: 'bg-green-500' },

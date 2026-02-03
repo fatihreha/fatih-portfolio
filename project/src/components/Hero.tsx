@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Terminal, Code2, Download } from 'lucide-react';
+import { Code2, Download, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -98,8 +98,9 @@ const Hero: React.FC = () => {
                   View My Work
                 </a>
                 <a
-                  href="/FatihRehaDisci_CV.pdf"
-                  download
+                  href="https://drive.google.com/file/d/1your-cv-file-id/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-secondary group"
                 >
                   <Download size={20} className="mr-2 group-hover:animate-bounce-gentle" />
@@ -115,33 +116,6 @@ const Hero: React.FC = () => {
               </motion.div>
             </div>
           </div>
-
-          {/* Floating Desktop Icons - PostHog style */}
-          <motion.div
-            className="hidden md:flex justify-center gap-8 mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-          >
-            <a href="#about" className="desktop-icon group">
-              <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
-                <FileText className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-              </div>
-              <span className="text-xs text-gray-500 dark:text-gray-400">About</span>
-            </a>
-            <a href="#skills" className="desktop-icon group">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
-                <Code2 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <span className="text-xs text-gray-500 dark:text-gray-400">Skills</span>
-            </a>
-            <a href="#experience" className="desktop-icon group">
-              <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center group-hover:animate-bounce-gentle">
-                <Terminal className="w-6 h-6 text-pink-600 dark:text-pink-400" />
-              </div>
-              <span className="text-xs text-gray-500 dark:text-gray-400">Experience</span>
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </section>

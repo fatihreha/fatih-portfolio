@@ -12,9 +12,9 @@ const Education: React.FC<EducationProps> = ({ id }) => {
       degree: "Bachelor's Degree in Information Systems & Technologies",
       institution: "Yeditepe University",
       location: "Atasehir, Istanbul",
-      period: "2021 - Present",
-      description: "Currently pursuing senior year in the Information Systems and Technologies program.",
-      stats: { label: 'GPA', value: '3.1/4.0', color: 'bg-green-500' },
+      period: "2021 - 2025",
+      description: "Coursework: Statistics, Programming, Web & Mobile Development, Database, Algorithms, Cloud, Linux.",
+      stats: { label: 'GPA', value: '3.15/4.0', color: 'bg-green-500' },
       logoColor: 'bg-blue-600'
     },
     {
@@ -22,8 +22,8 @@ const Education: React.FC<EducationProps> = ({ id }) => {
       institution: "Sehit Ilhan Varank",
       location: "Maltepe, Istanbul",
       period: "2017 - 2021",
-      description: "Comprehensive program covering both hardware and software aspects of computing systems.",
-      stats: { label: 'GPA', value: '91/100', color: 'bg-yellow-500' },
+      description: "",
+      stats: { label: '', value: '91/100', color: 'bg-yellow-500' },
       logoColor: 'bg-red-600'
     }
   ];
@@ -88,15 +88,19 @@ const Education: React.FC<EducationProps> = ({ id }) => {
                     {edu.location}
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                    {edu.description}
-                  </p>
+                  {edu.description && (
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                      {edu.description}
+                    </p>
+                  )}
 
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2 bg-gray-50 dark:bg-dark-secondary px-4 py-2 rounded-lg border border-gray-100 dark:border-gray-700">
                       <Award size={16} className="text-yellow-500" />
                       <span className="font-bold text-gray-800 dark:text-white">{edu.stats.value}</span>
-                      <span className="text-xs text-gray-500 uppercase tracking-wider ml-1">{edu.stats.label}</span>
+                      {edu.stats.label && (
+                        <span className="text-xs text-gray-500 uppercase tracking-wider ml-1">{edu.stats.label}</span>
+                      )}
                     </div>
                   </div>
                 </div>

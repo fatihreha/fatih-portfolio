@@ -69,7 +69,16 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       date: "2025",
       description: "Foundational course covering cloud computing concepts, AWS core services, and basic cloud architecture principles.",
       credentialUrl: "https://www.credly.com/badges/84135c4c-fdc2-490a-8ca5-9e54ef039e0e/linked_in_profile",
-      image: "https://images.credly.com/size/340x340/images/8d67bbf4-128b-4141-b5f1-1bc61bbfbaa6/image.png"
+      image: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.634f8a21af2e0e956ed8905a72366146ba22b74c.png"
+    },
+    {
+      id: 8,
+      name: "HCCDA: Cloud Native",
+      issuer: "Huawei",
+      date: "2025",
+      description: "Huawei Cloud Computing Developer Associate certification focusing on cloud-native technologies, containerization, and modern cloud architectures.",
+      credentialUrl: "https://www.linkedin.com/in/fatihrehadisci/overlay/1763470463080/single-media-viewer/?profileId=ACoAAC4gb04BiH0JJrOpvADB_kzh0GTl4NmgPbg",
+      image: "https://egirisim.com/wp-content/uploads/2023/07/huawei-cloud.jpg"
     }
   ];
 

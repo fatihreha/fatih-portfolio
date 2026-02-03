@@ -30,15 +30,6 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
       category: "fullstack"
     },
     {
-      id: 2,
-      title: "Course Registration System",
-      description: "A robust course registration system built with Spring Boot, enabling efficient management of student enrollments, course schedules, and academic records.",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-      tags: ["Java", "Spring Boot", "MySQL", "REST API"],
-      repoUrl: "https://github.com/fatihreha/course_registration_system",
-      category: "backend"
-    },
-    {
       id: 3,
       title: "ElderAid",
       description: "ElderAid is a team project and mobile application designed to alleviate the challenges faced by elderly individuals in their daily lives while fostering social solidarity. The app enables elderly users to easily communicate their needs (such as shopping, cleaning, walking, or companionship) to young volunteers.",
@@ -102,8 +93,8 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`pill-button hover:scale-105 ${activeFilter === filter.id
-                    ? 'pill-button-active'
-                    : 'bg-white dark:bg-dark-tertiary hover:border-brand-primary'
+                  ? 'pill-button-active'
+                  : 'bg-white dark:bg-dark-tertiary hover:border-brand-primary'
                   }`}
               >
                 {filter.label}

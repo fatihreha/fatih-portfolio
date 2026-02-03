@@ -11,7 +11,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
     {
       role: 'System Engineering Intern',
       company: 'Yapi Kredi Technology',
-      period: 'Jan 2024 - Sep 2024',
+      period: 'June 2024 - Sep 2024',
       location: 'Cayirova, Kocaeli',
       description: [
         "Analyzed and categorized over 1,000 IT support issues, informing training sessions that enhanced team response times by an average of two hours per ticket resolution.",
@@ -25,7 +25,7 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
     {
       role: 'Project Management Intern',
       company: 'Sca Social',
-      period: 'July 2023 - September 2023', // Corrected year based on chronology
+      period: 'July 2025 - Sep 2025',
       location: 'Istanbul, TR',
       description: [
         "Leveraged comprehensive training in Management & Organization, AI & Data Science, Project Management, and IT Law.",
@@ -33,18 +33,6 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
       ],
       stack: ['Project Management', 'AI & Data Science', 'IT Law'],
       color: 'bg-indigo-500'
-    },
-    {
-      role: 'Project Management Intern',
-      company: 'Istanbul Metropolitan Municipality',
-      period: 'Aug 2022 - Sep 2022',
-      location: 'Istanbul, TR',
-      description: [
-        "Observed and contributed to project management processes in a large-scale public sector environment.",
-        "Gained insights into public administration and IT project lifecycles."
-      ],
-      stack: ['Project Management', 'Communication', 'Planning'],
-      color: 'bg-orange-500'
     }
   ];
 

@@ -18,7 +18,7 @@ interface Project {
 
 const Projects: React.FC<ProjectProps> = ({ id }) => {
   const [activeFilter, setActiveFilter] = useState('all');
-  
+
   const projects: Project[] = [
     {
       id: 1,
@@ -75,11 +75,11 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
       category: "frontend"
     }
   ];
-  
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
-  
+
   const filters = [
     { id: 'all', label: 'All Projects' },
     { id: 'mobile', label: 'Mobile' },
@@ -89,64 +89,81 @@ const Projects: React.FC<ProjectProps> = ({ id }) => {
     { id: 'devops', label: 'DevOps' },
     { id: 'cloud', label: 'Cloud' }
   ];
-  
+
   return (
-    <section id={id} className="py-16 bg-gray-50 dark:bg-dark-secondary">
+    <section id={id} className="py-16 section-cream">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center dark:text-white">My Projects</h2>
-        
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">My Projects</h2>
+
         <div className="flex justify-center mb-10">
           <div className="inline-flex flex-wrap justify-center gap-2">
             {filters.map(filter => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium btn-ripple hover-bounce ${
-                  activeFilter === filter.id
-                    ? 'bg-indigo-600 text-white hover-glow'
-                    : 'bg-white dark:bg-dark-primary text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-hover hover-lift'
-                }`}
+                className={`pill-button hover:scale-105 ${activeFilter === filter.id
+                    ? 'pill-button-active'
+                    : 'bg-white dark:bg-dark-tertiary hover:border-brand-primary'
+                  }`}
               >
                 {filter.label}
               </button>
             ))}
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map(project => (
-            <div key={project.id} className="bg-white dark:bg-dark-primary rounded-lg shadow-md overflow-hidden card-hover animate-fade-in-up hover-glow">
-              <div className="h-48 overflow-hidden">
-                <LazyImage 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover hover-scale"
-                />
-              </div>
-              <div className="p-6 card-content">
-                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white text-glow">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 px-3 py-1 rounded-full text-sm font-medium hover-bounce"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+            <div key={project.id} className="window-card group h-full flex flex-col">
+              {/* Window Header */}
+              <div className="window-header">
+                <div className="traffic-lights">
+                  <div className="traffic-light traffic-light-red"></div>
+                  <div className="traffic-light traffic-light-yellow"></div>
+                  <div className="traffic-light traffic-light-green"></div>
                 </div>
-                
-                <a
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 hover-slide hover-glow"
-                >
-                  <Github size={20} className="mr-2 icon-spin" />
-                  <span>View Repository</span>
-                </a>
+              </div>
+
+              {/* Window Content */}
+              <div className="flex-1 flex flex-col">
+                <div className="h-48 overflow-hidden relative">
+                  <LazyImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                </div>
+
+                <div className="p-6 flex flex-col flex-1 bg-white dark:bg-dark-primary">
+                  <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed flex-1">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="text-xs px-2.5 py-1 rounded-md bg-cream-200 dark:bg-dark-secondary text-gray-600 dark:text-gray-300 border border-cream-400 dark:border-dark-border"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary w-full group/btn"
+                  >
+                    <Github size={18} className="mr-2 group-hover/btn:rotate-12 transition-transform" />
+                    <span>View Repository</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}

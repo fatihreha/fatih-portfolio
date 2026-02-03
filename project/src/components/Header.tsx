@@ -1,113 +1,88 @@
-import React from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../hooks/useTheme';
+import React, { useState, useEffect } from 'react';
+import { Wifi, BatteryMedium, Search, Moon, Sun } from 'lucide-react';
 
 interface HeaderProps {
-  navItems: {
-    id: string;
-    label: string;
-    icon: React.ReactElement;
-    action?: () => Window | null;
-  }[];
-  socialLinks: {
-    id: string;
-    label: string;
-    icon: React.ReactElement;
-    url: string;
-  }[];
-  mobileMenuOpen: boolean;
-  toggleMobileMenu: () => void;
-  menuIcon: React.ReactElement;  // Add this line
-  closeIcon: React.ReactElement; // Add this line
+  onSearchClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ 
-  navItems, 
-  socialLinks, 
-  mobileMenuOpen, 
-  toggleMobileMenu 
-}) => {
-  const { isDarkMode, toggleDarkMode } = useTheme();
-  
-  return (
-    <header className="bg-white dark:bg-dark-primary shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
-          <a href="#" className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">FRD</a>
-          
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            
-            <button
-              onClick={toggleMobileMenu}
-              className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none"
-              aria-label="Toggle mobile menu"
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
+  const [time, setTime] = useState(new Date());
+  const [isDark, setIsDark] = useState(false);
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
-            {navItems.map((item) => (
-              <a 
-                key={item.id}
-                href={item.action ? undefined : `#${item.id}`}
-                onClick={item.action}
-                className="flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer"
-              >
-                {item.icon}
-                <span>{item.label}</span>
-              </a>
-            ))}
-          </nav>
-          
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="md:hidden bg-white dark:bg-dark-primary border-t border-gray-100 dark:border-gray-700">
-              <div className="container mx-auto px-4 py-3">
-                <nav className="flex flex-col space-y-3">
-                  {navItems.map((item) => (
-                    <a 
-                      key={item.id}
-                      href={item.action ? undefined : `#${item.id}`}
-                      onClick={() => {
-                        if (item.action) {
-                          item.action();
-                        }
-                        toggleMobileMenu();
-                      }}
-                      className="flex items-center space-x-2 py-2 px-3 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-md transition-colors cursor-pointer"
-                    >
-                      {item.icon}
-                      <span>{item.label}</span>
-                    </a>
-                  ))}
-                  
-                  <div className="border-t border-gray-100 dark:border-gray-700 pt-3 mt-3 flex space-x-4">
-                    {socialLinks.map((link) => (
-                      <a 
-                        key={link.id}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                        aria-label={link.label}
-                      >
-                        {link.icon}
-                      </a>
-                    ))}
-                  </div>
-                </nav>
-              </div>
-            </div>
-          )}
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+
+    // Check system preference or localStorage
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    if (newTheme) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  };
+
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 h-8 flex items-center justify-between px-4 text-xs font-medium select-none shadow-sm transition-colors duration-300">
+      {/* Left Menu Items */}
+      <div className="flex items-center gap-4">
+        <div className="font-bold text-sm hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-pointer transition-colors dark:text-gray-200">
+          
+        </div>
+        <div className="font-bold text-gray-800 dark:text-gray-100 hidden md:block hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-pointer">
+          Fatih Portfolio
+        </div>
+      </div>
+
+      {/* Right Menu Items */}
+      <div className="flex items-center gap-3 text-gray-700 dark:text-gray-200">
+        <div className="hidden sm:flex items-center gap-4 mr-2">
+          <button
+            onClick={toggleTheme}
+            className="hover:bg-gray-200/50 dark:hover:bg-gray-700/50 p-1 rounded transition-colors focus:outline-none"
+            aria-label="Toggle Dark Mode"
+          >
+            {isDark ? <Moon size={14} /> : <Sun size={14} />}
+          </button>
+          <BatteryMedium size={14} className="opacity-80" />
+          <Wifi size={14} className="opacity-80" />
+          <button
+            onClick={onSearchClick}
+            className="hover:bg-gray-200/50 dark:hover:bg-gray-700/50 p-1 rounded transition-colors focus:outline-none"
+            aria-label="Spotlight Search"
+          >
+            <Search size={14} className="opacity-80" />
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-0.5 rounded cursor-default transition-colors">
+          <span className="hidden sm:inline">{formatDate(time)}</span>
+          <span>{formatTime(time)}</span>
         </div>
       </div>
     </header>

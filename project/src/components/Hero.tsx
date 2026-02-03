@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, FileText, Terminal, Code2 } from 'lucide-react';
+import { FileText, Terminal, Code2, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -98,6 +98,14 @@ const Hero: React.FC = () => {
                   View My Work
                 </a>
                 <a
+                  href="/FatihRehaDisci_CV.pdf"
+                  download
+                  className="btn-secondary group"
+                >
+                  <Download size={20} className="mr-2 group-hover:animate-bounce-gentle" />
+                  Download CV
+                </a>
+                <a
                   href="#contact"
                   className="btn-secondary group"
                 >
@@ -135,8 +143,6 @@ const Hero: React.FC = () => {
             </a>
           </motion.div>
         </motion.div>
-
-        {/* Scroll Indicator Removed */}
       </div>
     </section>
   );

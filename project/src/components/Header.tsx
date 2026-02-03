@@ -73,10 +73,11 @@ const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
           <Wifi size={14} className="opacity-80" />
           <button
             onClick={onSearchClick}
-            className="hover:bg-gray-200/50 dark:hover:bg-gray-700/50 p-1 rounded transition-colors focus:outline-none"
+            className="flex items-center gap-1 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 px-2 py-1 rounded transition-colors focus:outline-none"
             aria-label="Spotlight Search"
           >
             <Search size={14} className="opacity-80" />
+            <span className="hidden md:inline text-[10px] text-gray-400 dark:text-gray-500 font-mono bg-gray-100 dark:bg-gray-800 px-1 rounded">⌘K</span>
           </button>
         </div>
 

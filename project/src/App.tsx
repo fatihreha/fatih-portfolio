@@ -12,6 +12,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Dock from './components/Dock';
 import Spotlight from './components/Spotlight';
+import ScrollProgress from './components/ScrollProgress';
+import GitHubStats from './components/GitHubStats';
 import ErrorBoundary from './components/ErrorBoundary';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
@@ -28,6 +30,18 @@ function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Keyboard shortcut for Spotlight (Cmd+K / Ctrl+K)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -47,9 +61,10 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-cream-200 dark:bg-dark-primary text-gray-800 dark:text-gray-200 font-sans selection:bg-brand-primary selection:text-white pb-32">
+      <div className="min-h-screen bg-cream-200 dark:bg-dark-primary text-gray-800 dark:text-gray-200 font-sans selection:bg-brand-primary selection:text-white pb-16">
         {/* macOS Menu Bar */}
         <Header onSearchClick={() => setIsSearchOpen(true)} />
+        <ScrollProgress />
         <Spotlight
           isOpen={isSearchOpen}
           onClose={() => setIsSearchOpen(false)}
@@ -85,6 +100,10 @@ function App() {
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Projects section failed to load</div>}>
             <Projects id="projects" />
+          </ErrorBoundary>
+
+          <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">GitHub Stats section failed to load</div>}>
+            <GitHubStats id="github" />
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Certifications section failed to load</div>}>

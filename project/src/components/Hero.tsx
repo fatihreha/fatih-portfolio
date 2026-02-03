@@ -98,7 +98,7 @@ const Hero: React.FC = () => {
                   View My Work
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1your-cv-file-id/view"
+                  href="https://drive.google.com/file/d/1-QJL-0o4Qb8VWHXVJwHurMXvLyu4ZaHn/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary group"

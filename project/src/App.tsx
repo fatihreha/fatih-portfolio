@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
-import GraduationThesis from './components/GraduationThesis';
-import Contact from './components/Contact';
+// Lazy load other components
+const About = React.lazy(() => import('./components/About'));
+const Skills = React.lazy(() => import('./components/Skills'));
+const Projects = React.lazy(() => import('./components/Projects'));
+const Experience = React.lazy(() => import('./components/Experience'));
+const Education = React.lazy(() => import('./components/Education'));
+const Certifications = React.lazy(() => import('./components/Certifications'));
+const GraduationThesis = React.lazy(() => import('./components/GraduationThesis'));
+const Contact = React.lazy(() => import('./components/Contact'));
 import Footer from './components/Footer';
 import Dock from './components/Dock';
 import Spotlight from './components/Spotlight';
@@ -19,8 +20,19 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import { Activity, Target } from 'lucide-react';
 
+// Loading component for Suspense fallback
+const LoadingSection = () => (
+  <div className="flex items-center justify-center min-h-[50vh] w-full">
+    <div className="traffic-lights animate-pulse">
+      <div className="traffic-light traffic-light-red"></div>
+      <div className="traffic-light traffic-light-yellow"></div>
+      <div className="traffic-light traffic-light-green"></div>
+    </div>
+  </div>
+);
+
 function App() {
-  const [activeWindow, setActiveWindow] = useState('hero');
+  const [_activeWindow, setActiveWindow] = useState('hero');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // Handle scroll to highlight active section in Dock (optional implementation)
@@ -79,27 +91,39 @@ function App() {
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">About section failed to load</div>}>
-            <About id="about" />
+            <Suspense fallback={<LoadingSection />}>
+              <About id="about" />
+            </Suspense>
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Skills section failed to load</div>}>
-            <Skills id="skills" />
+            <Suspense fallback={<LoadingSection />}>
+              <Skills id="skills" />
+            </Suspense>
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Experience section failed to load</div>}>
-            <Experience id="experience" />
+            <Suspense fallback={<LoadingSection />}>
+              <Experience id="experience" />
+            </Suspense>
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Education section failed to load</div>}>
-            <Education id="education" />
+            <Suspense fallback={<LoadingSection />}>
+              <Education id="education" />
+            </Suspense>
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Graduation Thesis section failed to load</div>}>
-            <GraduationThesis id="graduation-thesis" />
+            <Suspense fallback={<LoadingSection />}>
+              <GraduationThesis id="graduation-thesis" />
+            </Suspense>
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Projects section failed to load</div>}>
-            <Projects id="projects" />
+            <Suspense fallback={<LoadingSection />}>
+              <Projects id="projects" />
+            </Suspense>
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">GitHub Stats section failed to load</div>}>
@@ -107,7 +131,9 @@ function App() {
           </ErrorBoundary>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Certifications section failed to load</div>}>
-            <Certifications id="certifications" />
+            <Suspense fallback={<LoadingSection />}>
+              <Certifications id="certifications" />
+            </Suspense>
           </ErrorBoundary>
 
           {/* Activities Section */}
@@ -167,7 +193,9 @@ function App() {
           </section>
 
           <ErrorBoundary fallback={<div className="p-4 text-center text-red-600">Contact section failed to load</div>}>
-            <Contact id="contact" />
+            <Suspense fallback={<LoadingSection />}>
+              <Contact id="contact" />
+            </Suspense>
           </ErrorBoundary>
         </main>
 

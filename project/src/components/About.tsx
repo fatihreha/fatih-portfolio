@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { User, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface AboutProps {
@@ -35,9 +34,7 @@ const About: React.FC<AboutProps> = ({ id }) => {
             <div className="window-card p-4 bg-white dark:bg-dark-tertiary transform rotate-[-2deg] hover:rotate-0 transition-transform duration-300">
               <div className="aspect-square w-64 md:w-full overflow-hidden rounded-lg mb-4 border border-gray-200 bg-gray-100">
                 <img
-                  src="/fthrhdsci.JPEG"
-                  alt="Fatih Reha Dişçi"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                  src="/fthrdsc.webp" // Added back optimized image source
                   onError={(e) => {
                     // Fallback if image fails
                     e.currentTarget.src = "https://ui-avatars.com/api/?name=Fatih+Reha&background=random";

@@ -27,7 +27,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://egirisim.com/wp-content/uploads/2023/07/huawei-cloud.jpg"
     },
     {
-      id: 2,
+      id: 3,
       name: "DevOps Essentials",
       issuer: "IBM",
       date: "2025",
@@ -36,7 +36,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://yt3.googleusercontent.com/dhVlUr4qzdw97K77mitoVSZk8u3KLl4hWCeiAVNuoqG1W7WmcN86GSIl96Ge1PeauemTwCl5TA=s900-c-k-c0x00ffffff-no-rj"
     },
     {
-      id: 3,
+      id: 4,
       name: "McKinsey.org Forward Program",
       issuer: "McKinsey & Company",
       date: "2025",
@@ -45,7 +45,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://egirisim.com/wp-content/uploads/2020/02/mckinsey-bankacilik-raporu.jpeg"
     },
     {
-      id: 4,
+      id: 5,
       name: "Introduction to Computer Science CS50x",
       issuer: "Harvard University",
       date: "2025",
@@ -54,7 +54,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://pll.harvard.edu/sites/default/files/styles/16_9_medium/public/course/CS50x_pll.png"
     },
     {
-      id: 5,
+      id: 6,
       name: "AWS Cloud Practitioner'23",
       issuer: "Yapı Kredi Technology",
       date: "2024",
@@ -63,7 +63,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.634f8a21af2e0e956ed8905a72366146ba22b74c.png"
     },
     {
-      id: 6,
+      id: 7,
       name: "Cloud Technologies Workshop",
       issuer: "Tech Istanbul",
       date: "2024",
@@ -72,7 +72,7 @@ const Certifications: React.FC<CertificationsProps> = ({ id }) => {
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80"
     },
     {
-      id: 7,
+      id: 8,
       name: "AWS Educate Introduction to Cloud 101",
       issuer: "Amazon Web Services (AWS)",
       date: "2025",

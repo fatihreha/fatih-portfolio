@@ -9,6 +9,18 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({ id }) => {
   const experiences = [
     {
+      role: 'Project Management Intern',
+      company: 'Sca Social',
+      period: 'July 2025 - Sep 2025',
+      location: 'Istanbul, TR',
+      description: [
+        "Leveraged comprehensive training in Management & Organization, AI & Data Science, Project Management, and IT Law.",
+        "Developed a final capstone project for presentation, demonstrating practical application of learned concepts."
+      ],
+      stack: ['Project Management', 'AI & Data Science', 'IT Law'],
+      color: 'bg-indigo-500'
+    },
+    {
       role: 'System Engineering Intern',
       company: 'Yapi Kredi Technology',
       period: 'June 2024 - Sep 2024',
@@ -21,18 +33,6 @@ const Experience: React.FC<ExperienceProps> = ({ id }) => {
       ],
       stack: ['Python', 'Excel', 'Jira', 'Microservices', 'Agile'],
       color: 'bg-blue-500'
-    },
-    {
-      role: 'Project Management Intern',
-      company: 'Sca Social',
-      period: 'July 2025 - Sep 2025',
-      location: 'Istanbul, TR',
-      description: [
-        "Leveraged comprehensive training in Management & Organization, AI & Data Science, Project Management, and IT Law.",
-        "Developed a final capstone project for presentation, demonstrating practical application of learned concepts."
-      ],
-      stack: ['Project Management', 'AI & Data Science', 'IT Law'],
-      color: 'bg-indigo-500'
     }
   ];
 
